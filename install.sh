@@ -1,11 +1,6 @@
 #!/bin/sh
 #Edited by Jie Feng
 #~/install/installVim.sh
-mkdir ~/generated
-
-#push.sh setup
-gpg --output ~/generated/push.sh  --decrypt ~/install/push.sh.gpg
-chmod a+x ~/generated/push.sh
 
 #PPA
 sudo apt-add-repository ppa:thefanclub/grive-tools
