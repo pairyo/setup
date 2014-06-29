@@ -26,7 +26,7 @@ HISTTIMEFORMAT="%F-%M-%S --> "
 HISTIGNORE="cd *":"ls *":"mkdir *"
 
 export PATH=~/PhpStorm/bin/:~/potion/bin:~/bin:~/adt-bundle/sdk/platform-tools/:~/adt-bundle/sdk/tools/:$PATH
-export PATH=/home/john/bin/sbt/bin/:/home/john/DCD/:$PATH
+export PATH=~/bin/sbt/bin/:~/DCD/:$PATH
  
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
@@ -121,11 +121,6 @@ alias rm='rm -rf'
 alias cp='cp -i'
 alias mv='mv -i'
 
-alias cv='cd /home/dxks/NetBeansProjects/yangda/app/View/'
-alias cc='cd /home/dxks/NetBeansProjects/yangda/app/Controller/'
-alias cm='cd /home/dxks/NetBeansProjects/yangda/app/Model/'
-alias cl='cd /home/dxks/NetBeansProjects/yangda/app/tmp/logs/'
-alias cw='cd /home/dxks/NetBeansProjects/yangda/app/webroot/'
 
 alias phpcsz='phpcs --standard=Zend '
 alias cls='clear'
@@ -133,7 +128,7 @@ alias cls='clear'
 alias a2reload='sudo service apache2 restart'
 alias ssh_you='ssh you@192.168.0.101'
 
-export PS1='\h:\w\$ '
+export PS1='\u@\h:\w\$ '
 umask 022
 
 # You may uncomment the following lines if you want `ls' to be colorized:
@@ -164,7 +159,7 @@ shopt -s dotglob
 alias watchMemory='watch "ps aux | sort -nrk 4 | head -n 40"'
 alias watchCPU='watch "ps aux | sort -nrk 3 | head -n 40"'
 alias replaceUnity='sudo DISPLAY=:0 unity --replace'
-alias logOut="logoutUser john"
+alias logOut="logoutUser $USER"
 alias open="gnome-open"
 alias switchKeyboard="switchInput 14"
 alias switchMouse="switchInput 15"
@@ -178,4 +173,15 @@ alias updatePersonWeb='ssh root@192.241.137.164 "cd /var/www/personalWeb; git pu
 alias findBinary='find . -name "*.o" -or -perm +111 -type f -not -name "*.py" -not -name "*.pl"  -not -name "*.sh"'
 alias rmBinary='find . -name "*.o" -or -perm +111 -type f -not -name "*.py" -not -name "*.pl"  -not -name "*.sh" | xargs rm'
 # added by Anaconda 1.9.1 installer
-export PATH="/home/john/anaconda/bin:$PATH"
+export PATH="~/anaconda/bin:$PATH"
+
+#bitcoin
+REG_ADDRESS=mxVJMaojtnRV9sUCoPVCSM4StCzDENKih9
+export PATH="~/maicoin/bitcoin/src:$PATH"
+
+
+#ctags
+
+generateTags(){
+    find . -regex ".*\.\(c\|h\|hpp\|cc\|cpp\)" -print | ctags --totals --recurse --extra="+qf" --fields="+i" -L -
+}

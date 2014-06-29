@@ -33,12 +33,6 @@ sudo apt-get install vim vim-gnome tomboy exuberant-ctags\
     ack xfig
 
 
-#Tex/Latex installing
-sudo apt-get install texlive-full evince texmaker
-
-#All yes
-sudo apt-get install -y grive-tools
-
 #Developing
 sudo apt-get install cmake  bzr build-dep unity nux gnome-common libibus-1.0-dev libgtest-dev google-mock libxtst-dev libmrss0 
 
