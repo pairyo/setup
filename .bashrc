@@ -185,3 +185,9 @@ export PATH="~/maicoin/bitcoin/src:$PATH"
 generateTags(){
     find . -regex ".*\.\(c\|h\|hpp\|cc\|cpp\)" -print | ctags --totals --recurse --extra="+qf" --fields="+i" -L -
 }
+
+
+
+#TMUX
+TMUX_POWERLINE_DIR_HOME=~/jie/tmux-powerline
+TMUX_POWERLINE_DIR_LIB=~/jie/tmux-powerline/lib
