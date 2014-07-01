@@ -3,8 +3,8 @@
 # for examples
 #startup{{{
 #}}}
-#yes
 export EDITOR=vim
+#set -o vi
 . /etc/profile.d/vte.sh
 bind '"\e[A": history-search-backward'
 bind '"\e[B": history-search-forward'
