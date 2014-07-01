@@ -4,6 +4,7 @@
 #startup{{{
 #}}}
 #yes
+export EDITOR=vim
 . /etc/profile.d/vte.sh
 bind '"\e[A": history-search-backward'
 bind '"\e[B": history-search-forward'
@@ -183,6 +184,9 @@ export PATH="~/maicoin/bitcoin/src:$PATH"
 #ctags
 
 generateTags(){
+    ctags -R --sort=yes --c++-kinds=+p --fields=+iaS --extra=+q --language-force=C++ .
+}
+generateTags1(){
     find . -regex ".*\.\(c\|h\|hpp\|cc\|cpp\)" -print | ctags --totals --recurse --extra="+qf" --fields="+i" -L -
 }
 
@@ -191,3 +195,8 @@ generateTags(){
 #TMUX
 TMUX_POWERLINE_DIR_HOME=~/jie/tmux-powerline
 TMUX_POWERLINE_DIR_LIB=~/jie/tmux-powerline/lib
+
+
+#Clang
+LibClang_LIBRARY=/usr/lib/llvm-3.5/lib/libclang-3.5.so
+LibClang_INCLUDE_DIR=/usr/lib/llvm-3.5/include/clang
