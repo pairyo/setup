@@ -200,3 +200,5 @@ TMUX_POWERLINE_DIR_LIB=~/jie/tmux-powerline/lib
 #Clang
 LibClang_LIBRARY=/usr/lib/llvm-3.5/lib/libclang-3.5.so
 LibClang_INCLUDE_DIR=/usr/lib/llvm-3.5/include/clang
+
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
