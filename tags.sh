@@ -1,9 +1,9 @@
 #!/bin/bash - 
 #===============================================================================
 #
-#          FILE: python.sh
+#          FILE: tags.sh
 # 
-#         USAGE: ./python.sh 
+#         USAGE: ./tags.sh 
 # 
 #   DESCRIPTION: 
 # 
@@ -13,10 +13,12 @@
 #         NOTES: ---
 #        AUTHOR: YOUR NAME (), 
 #  ORGANIZATION: 
-#       CREATED: 06/29/2014 20:28
+#       CREATED: 06/30/2014 12:28
 #      REVISION:  ---
 #===============================================================================
 
 set -o nounset                              # Treat unset variables as an error
-sudo pip install flake8
+gcc -M -I /usr/include/boost $* | sed -e 's/[\\ ]/\n/g' | \
+    sed -e '/^$/d' -e '/\.o:[ \t]*$/d' | \
+    ctags -L - --c++-kinds=+p --fields=+iaS --extra=+q
 

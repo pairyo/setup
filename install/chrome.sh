@@ -1,9 +1,9 @@
 #!/bin/bash - 
 #===============================================================================
 #
-#          FILE: python.sh
+#          FILE: chrome.sh
 # 
-#         USAGE: ./python.sh 
+#         USAGE: ./chrome.sh 
 # 
 #   DESCRIPTION: 
 # 
@@ -13,10 +13,11 @@
 #         NOTES: ---
 #        AUTHOR: YOUR NAME (), 
 #  ORGANIZATION: 
-#       CREATED: 06/29/2014 20:28
+#       CREATED: 07/04/2014 11:50
 #      REVISION:  ---
 #===============================================================================
 
 set -o nounset                              # Treat unset variables as an error
-sudo pip install flake8
-
+cd ~/Downloads
+wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+sudo dpkg -i google-chrome-stable_current_amd64.deb

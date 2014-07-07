@@ -15,7 +15,7 @@ sudo pip install urllib2
 
 #Install softwares
 sudo apt-get install vim vim-gnome tomboy exuberant-ctags\
-    git expect gparted \
+    expect gparted \
     artha dict goldendict goldendict-wordnet \
     vlc-nox gimp apcalc\
     figlet\
@@ -35,8 +35,3 @@ sudo apt-get install cmake  bzr build-dep unity nux gnome-common libibus-1.0-dev
 sudo apt-get install tasksel rake
 sudo tasksel install lamp-server
 sudo apt-get install php5-cgi
-#Git setup
-git config --global core.excludesfile ~/.gitignore_global
-git config --global user.email "jokerfeng2010@gmail.com"
-git config --global user.name "Jie Feng"
-git config --global push.default simple
