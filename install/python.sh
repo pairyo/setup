@@ -1,9 +1,9 @@
 #!/bin/bash - 
 #===============================================================================
 #
-#          FILE: java.sh
+#          FILE: python.sh
 # 
-#         USAGE: ./java.sh 
+#         USAGE: ./python.sh 
 # 
 #   DESCRIPTION: 
 # 
@@ -13,10 +13,10 @@
 #         NOTES: ---
 #        AUTHOR: YOUR NAME (), 
 #  ORGANIZATION: 
-#       CREATED: 06/29/2014 13:58
+#       CREATED: 06/29/2014 20:28
 #      REVISION:  ---
 #===============================================================================
 
 set -o nounset                              # Treat unset variables as an error
-
+sudo pip install flake8
 

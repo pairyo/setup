@@ -1,9 +1,9 @@
 #!/bin/bash - 
 #===============================================================================
 #
-#          FILE: java.sh
+#          FILE: boost.sh
 # 
-#         USAGE: ./java.sh 
+#         USAGE: ./boost.sh 
 # 
 #   DESCRIPTION: 
 # 
@@ -13,10 +13,10 @@
 #         NOTES: ---
 #        AUTHOR: YOUR NAME (), 
 #  ORGANIZATION: 
-#       CREATED: 06/29/2014 13:58
+#       CREATED: 06/30/2014 12:49
 #      REVISION:  ---
 #===============================================================================
 
 set -o nounset                              # Treat unset variables as an error
-
+sudo apt-get install libboost-iostreams-dev
 
