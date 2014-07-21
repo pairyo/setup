@@ -196,6 +196,10 @@ generateTags1(){
 TMUX_POWERLINE_DIR_HOME=~/jie/tmux-powerline
 TMUX_POWERLINE_DIR_LIB=~/jie/tmux-powerline/lib
 
+shutdownScreen(){
+    xset dpms force off
+}
+
 
 #Clang
 LibClang_LIBRARY=/usr/lib/llvm-3.5/lib/libclang-3.5.so
