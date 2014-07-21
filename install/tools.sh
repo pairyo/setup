@@ -19,4 +19,4 @@
 
 set -o nounset                              # Treat unset variables as an error
 
-sudo apt-get install hardinfo
+sudo apt-get install hardinfo xclip

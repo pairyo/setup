@@ -22,7 +22,6 @@ set -o nounset                              # Treat unset variables as an error
 #Git setup
 sudo apt-get install git
 git config --global core.excludesfile ~/.gitignore_global
-git config --global user.email "jokerfeng2010@gmail.com"
+git config --global user.email "jiefeng.hopkins@gmail.com"
 git config --global user.name "Jie Feng"
 git config --global push.default simple
-
