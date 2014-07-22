@@ -22,4 +22,3 @@ echo "Installing insync..."
 wget -O /tmp/insync.deb http://s.insynchq.com/builds/insync_1.0.29.31750_amd64.deb
 sudo dpkg -i /tmp/insync.deb
 echo "Finished installing insync!"
-

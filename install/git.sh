@@ -25,3 +25,5 @@ git config --global core.excludesfile ~/.gitignore_global
 git config --global user.email "jiefeng.hopkins@gmail.com"
 git config --global user.name "Jie Feng"
 git config --global push.default simple
+git config --global alias.unstage 'reset HEAD --'
+
