@@ -19,8 +19,6 @@
 
 set -o nounset                              # Treat unset variables as an error
 
-mkdir ~/generated
-
 #push.sh setup
 #gpg --symmetric < ~/.ssh/id_rsa  > github.gpg
-gpg --decrypt < github.gpg > ~/.ssh/github
+gpg --decrypt < github.gpg > ~/.ssh/id_rsa
