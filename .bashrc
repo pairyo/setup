@@ -5,7 +5,6 @@
 #}}}
 export EDITOR=vim
 #set -o vi
-. /etc/profile.d/vte.sh
 bind '"\e[A": history-search-backward'
 bind '"\e[B": history-search-forward'
 # If not running interactively, don't do anything
