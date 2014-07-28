@@ -1,9 +1,9 @@
-#!/bin/bash -f
+#!/bin/bash - 
 #===============================================================================
 #
-#          FILE: github.sh
+#          FILE: time_for_cluster_to_come_up.sh
 # 
-#         USAGE: ./github.sh 
+#         USAGE: ./time_for_cluster_to_come_up.sh 
 # 
 #   DESCRIPTION: 
 # 
@@ -13,13 +13,16 @@
 #         NOTES: ---
 #        AUTHOR: YOUR NAME (), 
 #  ORGANIZATION: 
-#       CREATED: 06/29/2014 14:02
+#       CREATED: 07/25/2014 13:33
 #      REVISION:  ---
 #===============================================================================
 
 set -o nounset                              # Treat unset variables as an error
 
-#push.sh setup
-#gpg --symmetric < ~/.ssh/id_rsa  > github.gpg
-gpg --decrypt < github.gpg > ~/.ssh/id_rsa
-chmod 600 ~/.ssh/id_rsa
+
+time while [ "$waiting" != "0" ]; do
+    sleep 3
+    elastic-mapreduce --describe j-2GCUXUB6VH7Y |grep "State.*WAITING" > /dev/null
+    waiting=$?
+done
+

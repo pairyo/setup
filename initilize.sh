@@ -11,12 +11,8 @@ cd ~/.vim
 ~/.vim/setPlugins.sh
 popd
 
-#setup ssh keys 
-pushd .
-cd ssh_keys
-./ssh_keys.sh
-popd
 
 ln ~/jie/.bashrc -s ~/.bashrc
-ln ~/jie/.tmux.conf ~/.tmux.conf
+ln ~/jie/.tmux.conf -s ~/.tmux.conf
 ln ~/.vim/.vimrc -s ~/.vimrc
+ln ~/jie/.vrapperrc -s .vrapperrc

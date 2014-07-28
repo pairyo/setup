@@ -3,10 +3,8 @@
 # for examples
 #startup{{{
 #}}}
+export JAVA_HOME=/usr/lib/jvm/java-7-oracle
 export EDITOR=vim
-#set -o vi
-bind '"\e[A": history-search-backward'
-bind '"\e[B": history-search-forward'
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
 # don't put duplicate lines in the history. See bash(1) for more options
@@ -154,6 +152,23 @@ switchInput(){
         xinput disable $1
     fi
 }
+
+doEncryption(){
+    file=$1
+    echo "gpg --symmetric < $file > ${file}.gpg"
+    gpg --symmetric < $file > "${file}.gpg"
+}
+doDecryption(){
+    file=$1
+    if [[ $file != *.gpg ]]
+    then 
+        echo "file format is wrong, should end with 'gpg'"
+    else
+        decryptedFile=${file:0:-4}
+        echo $decryptedFile
+        gpg --decrypt < $file > $decryptedFile
+    fi
+}
 alias ensite=ensiteIt
 shopt -s dotglob
 alias watchMemory='watch "ps aux | sort -nrk 4 | head -n 40"'
@@ -172,6 +187,8 @@ alias updatePersonWeb='ssh root@192.241.137.164 "cd /var/www/personalWeb; git pu
 
 alias findBinary='find . -name "*.o" -or -perm +111 -type f -not -name "*.py" -not -name "*.pl"  -not -name "*.sh"'
 alias rmBinary='find . -name "*.o" -or -perm +111 -type f -not -name "*.py" -not -name "*.pl"  -not -name "*.sh" | xargs rm'
+alias encrypt=doEncryption
+alias decrypt=doDecryption
 # added by Anaconda 1.9.1 installer
 export PATH="~/anaconda/bin:$PATH"
 
@@ -206,3 +223,22 @@ LibClang_INCLUDE_DIR=/usr/lib/llvm-3.5/include/clang
 
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 alias rubyEnvironment='source ~/.rvm/scripts/rvm'
+
+#HADOOP VARIABLES START
+export JAVA_HOME=/usr/lib/jvm/java-7-oracle
+export HADOOP_INSTALL=/home/john/programs/hadoop-2.4.1
+export HADOOP_HOME=$HADOOP_INSTALL
+export PATH=$PATH:$HADOOP_INSTALL/bin:$HADOOP_INSTALL/sbin
+export HADOOP_MAPRED_HOME=$HADOOP_INSTALL
+export HADOOP_COMMON_HOME=$HADOOP_INSTALL
+export HADOOP_HDFS_HOME=$HADOOP_INSTALL
+export YARN_HOME=$HADOOP_INSTALL
+export HADOOP_COMMON_LIB_NATIVE_DIR=$HADOOP_INSTALL/lib/native
+export HADOOP_OPTS="-Djava.library.path=$HADOOP_INSTALL/lib"
+#HADOOP VARIABLES END
+source ~/jie/local.sh
+
+
+#set -o vi
+bind '"\e[A": history-search-backward'
+bind '"\e[B": history-search-forward'
