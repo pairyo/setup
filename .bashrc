@@ -204,5 +204,32 @@ shutdownScreen(){
 LibClang_LIBRARY=/usr/lib/llvm-3.5/lib/libclang-3.5.so
 LibClang_INCLUDE_DIR=/usr/lib/llvm-3.5/include/clang
 
+#HADOOP VARIABLES START
+export JAVA_HOME=/usr/lib/jvm/java-1.6.0-openjdk-1.6.0.0.x86_64/
+#export HADOOP_HOME=/home/ec2-user/hadoop-2.4.1
+export HADOOP_HOME=/usr/share/hadoop
+export HADOOP_INSTALL=$HADOOP_HOME
+export PATH=$PATH:$HADOOP_INSTALL/bin
+export PATH=$PATH:$HADOOP_INSTALL/sbin
+export HADOOP_MAPRED_HOME=$HADOOP_INSTALL
+export HADOOP_COMMON_HOME=$HADOOP_INSTALL
+export HADOOP_HDFS_HOME=$HADOOP_INSTALL
+export YARN_HOME=$HADOOP_INSTALL
+export HADOOP_COMMON_LIB_NATIVE_DIR=$HADOOP_INSTALL/lib/native
+export HADOOP_OPTS="-Djava.library.path=$HADOOP_INSTALL/lib"
+
+#HADOOP VARIABLES END
+
+#Maven
+export M2_HOME=/usr/local/share/apache-maven-3.2.1
+export M2=$M2_HOME/bin
+export PATH=$M2:$PATH
+#s3cmd
+export PATH=$PATH:/home/ec2-user/s3cmd
+
+
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 alias rubyEnvironment='source ~/.rvm/scripts/rvm'
+AWS_KEY=AKIAI42IN2R26L3LQAWA
+AWS_SECRET_KEY=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
+CC_FILE="s3n://aws-publicdatasets/common-crawl/crawl-002/2009/09/17/7/1253241399873_7.arc.gz"
