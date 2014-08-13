@@ -4,6 +4,9 @@
 #startup{{{
 #}}}
 export JAVA_HOME=/usr/lib/jvm/java-7-oracle
+# /usr/lib/jvm/java-7-oracle/lib/
+export CLASSPATH=$JAVA_HOME/lib:~/programs/hadoop-2.4.1/jars
+#export classpath=$JAVA_HOME/lib:~/programs/hadoop-2.4.1/jars
 export EDITOR=vim
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
@@ -238,14 +241,14 @@ export HADOOP_OPTS="-Djava.library.path=$HADOOP_INSTALL/lib"
 #HADOOP VARIABLES END
 
 #Maven
-export M2_HOME=/usr/local/share/apache-maven-3.2.1
+export M2_HOME=/usr/share/maven
 export M2=$M2_HOME/bin
 export PATH=$M2:$PATH
 #s3cmd
-export PATH=$PATH:/home/ec2-user/s3cmd
+export PATH=$PATH:~/programs/s3cmd
 
 
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+export PATH="$PATH:$HOME/.rvm/bin:~/.rvm/gems/ruby-2.1.2/bin" # Add RVM to PATH for scripting
 alias rubyEnvironment='source ~/.rvm/scripts/rvm'
 
 #HADOOP VARIABLES START
@@ -261,6 +264,8 @@ export HADOOP_COMMON_LIB_NATIVE_DIR=$HADOOP_INSTALL/lib/native
 export HADOOP_OPTS="-Djava.library.path=$HADOOP_INSTALL/lib"
 #HADOOP VARIABLES END
 source ~/jie/local.sh
+#AWS
+export PATH=$PATH:~/programs/aws/
 
 
 #set -o vi
@@ -269,3 +274,14 @@ bind '"\e[B": history-search-forward'
 AWS_KEY=AKIAI42IN2R26L3LQAWA
 AWS_SECRET_KEY=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
 CC_FILE="s3n://aws-publicdatasets/common-crawl/crawl-002/2009/09/17/7/1253241399873_7.arc.gz"
+
+export PATH=$PATH:~/.npmprefix/bin
+
+# The next line updates PATH for the Google Cloud SDK.
+source '/home/john/google-cloud-sdk/path.bash.inc'
+
+# The next line enables bash completion for gcloud.
+source '/home/john/google-cloud-sdk/completion.bash.inc'
+
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"
