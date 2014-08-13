@@ -248,7 +248,7 @@ export PATH=$M2:$PATH
 export PATH=$PATH:~/programs/s3cmd
 
 
-export PATH="$PATH:$HOME/.rvm/bin:~/.rvm/gems/ruby-2.1.2/bin" # Add RVM to PATH for scripting
+export PATH="$HOME/.rvm/gems/ruby-2.1.2/bin:$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 alias rubyEnvironment='source ~/.rvm/scripts/rvm'
 
 #HADOOP VARIABLES START
@@ -285,3 +285,6 @@ source '/home/john/google-cloud-sdk/completion.bash.inc'
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
+alias vimbash="vim ~/.bashrc"
+alias sourcebash="source ~/.bashrc"
+
