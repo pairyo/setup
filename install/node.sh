@@ -1,9 +1,9 @@
 #!/bin/bash - 
 #===============================================================================
 #
-#          FILE: time_for_cluster_to_come_up.sh
+#          FILE: node.sh
 # 
-#         USAGE: ./time_for_cluster_to_come_up.sh 
+#         USAGE: ./node.sh 
 # 
 #   DESCRIPTION: 
 # 
@@ -13,16 +13,9 @@
 #         NOTES: ---
 #        AUTHOR: YOUR NAME (), 
 #  ORGANIZATION: 
-#       CREATED: 07/25/2014 13:33
+#       CREATED: 08/13/2014 13:05
 #      REVISION:  ---
 #===============================================================================
 
 set -o nounset                              # Treat unset variables as an error
-
-
-time while [ "$waiting" != "0" ]; do
-    sleep 3
-    elastic-mapreduce --describe j-2GCUXUB6VH7Y |grep "State.*WAITING" > /dev/null
-    waiting=$?
-done
-
+sudo npm install -g jshint
