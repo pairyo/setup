@@ -177,15 +177,39 @@ CC_FILE="s3n://aws-publicdatasets/common-crawl/crawl-002/2009/09/17/7/1253241399
 export PATH=$PATH:~/.npmprefix/bin
 
 # The next line updates PATH for the Google Cloud SDK.
-source '/home/john/google-cloud-sdk/path.bash.inc'
+if [ -e '/home/john/google-cloud-sdk/path.bash.inc' ]; then
+    source '/home/john/google-cloud-sdk/path.bash.inc'
+fi
 
 # The next line enables bash completion for gcloud.
-source '/home/john/google-cloud-sdk/completion.bash.inc'
-
+if [ -e  '/home/john/google-cloud-sdk/completion.bash.inc' ]; then
+    source '/home/john/google-cloud-sdk/completion.bash.inc'
+fi
+extract () { 
+    if [ -f $1 ] ; then 
+        case $1 in 
+            *.tar.bz2) tar xvjf $1 ;; 
+            *.tar.gz) tar xvzf $1 ;; 
+            *.bz2) bunzip2 $1 ;; 
+            *.rar) rar x $1 ;; 
+            *.gz) gunzip $1 ;; 
+            *.tar) tar xvf $1 ;; 
+            *.tbz2) tar xvjf $1 ;; 
+            *.tgz) tar xvzf $1 ;; 
+            *.zip) unzip $1 ;; 
+            *.Z) uncompress $1 ;; 
+            *.7z) 7z x $1 ;; 
+            *) echo "don't know how to extract '$1'..." ;; 
+        esac 
+    else 
+        echo "'$1' is not a valid file!" 
+    fi 
+} 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
 alias vimbash="vim ~/.bashrc"
 alias sourcebash="source ~/.bashrc"
+alias open="xdg-open"
 
 export PATH=$PATH:/home/ec2-user/s3cmd
 # HADOOP
@@ -205,6 +229,10 @@ if [[ -e ~/jie/local.sh ]]
 then
     source ~/jie/local.sh
 fi
-echo $PATH
 export PATH="$HOME/.rvm/gems/ruby-2.0.0-p481/bin:$HOME/.rvm/bin:$PATH" # Add RVM to PATH for scripting
-echo $PATH
+export PATH="$HOME/programs/smartgit/bin/:$PATH" 
+[ "$DISPLAY" ] && xset b 100
+
+export NVM_DIR="/home/john/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+nvm use 0.11.13

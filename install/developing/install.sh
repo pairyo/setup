@@ -2,7 +2,7 @@
 #**git, tmux
 set -o nounset                              # Treat unset variables as an error
 #Git setup
-sudo apt-get install git tmux
+sudo apt-get install git tmux tomboy exuberant-ctags
 git config --global core.excludesfile ~/.gitignore_global
 git config --global user.email "jiefeng.hopkins@gmail.com"
 git config --global user.name "Jie Feng"
