@@ -229,10 +229,13 @@ if [[ -e ~/jie/local.sh ]]
 then
     source ~/jie/local.sh
 fi
-export PATH="$HOME/.rvm/gems/ruby-2.0.0-p481/bin:$HOME/.rvm/bin:$PATH" # Add RVM to PATH for scripting
 export PATH="$HOME/programs/smartgit/bin/:$PATH" 
 [ "$DISPLAY" ] && xset b 100
 
 export NVM_DIR="/home/john/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 nvm use 0.11.13
+
+export PATH="~/.rvm/gems/ruby-2.1.2/bin:~/.rvm/bin:$PATH" # Add RVM to PATH for scripting
+#xinput set-prop 15 "Device Enabled" 1
+rvm use 2.0.0
