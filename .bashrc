@@ -225,16 +225,18 @@ export HADOOP_OPTS="$HADOOP_OPTS -Djava.library.path=$HADOOP_HOME/lib"
 export CLASSPATH="$CLASSPATH:/usr/local/hadoop/lib"
 export HADOOP_COMMON_LIB_NATIVE_DIR="/usr/local/hadoop/lib"
 export CC_FILE="s3n://aws-publicdatasets/common-crawl/crawl-002/2009/09/17/7/1253241399873_7.arc.gz"
+#xinput set-prop 15 "Device Enabled" 1
 if [[ -e ~/jie/local.sh ]]
 then
     source ~/jie/local.sh
 fi
-export PATH="$HOME/.rvm/gems/ruby-2.0.0-p481/bin:$HOME/.rvm/bin:$PATH" # Add RVM to PATH for scripting
 export PATH="$HOME/programs/smartgit/bin/:$PATH" 
 [ "$DISPLAY" ] && xset b 100
 
 export NVM_DIR="~/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
-#source ~/.nvm/nvm.sh
-#nvm use 0.11.13
-nvm alias default 0.11.13
+#[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+source ~/.nvm/nvm.sh
+#nvm ls
+export PATH="~/.rvm/gems/ruby-2.1.2/bin:~/.rvm/bin:$PATH" # Add RVM to PATH for scripting
+source ~/.rvm/scripts/rvm
+rvm use 2.0.0
