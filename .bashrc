@@ -177,13 +177,13 @@ CC_FILE="s3n://aws-publicdatasets/common-crawl/crawl-002/2009/09/17/7/1253241399
 export PATH=$PATH:~/.npmprefix/bin
 
 # The next line updates PATH for the Google Cloud SDK.
-if [ -e '/home/john/google-cloud-sdk/path.bash.inc' ]; then
-    source '/home/john/google-cloud-sdk/path.bash.inc'
+if [ -e '~/google-cloud-sdk/path.bash.inc' ]; then
+    source '~/google-cloud-sdk/path.bash.inc'
 fi
 
 # The next line enables bash completion for gcloud.
-if [ -e  '/home/john/google-cloud-sdk/completion.bash.inc' ]; then
-    source '/home/john/google-cloud-sdk/completion.bash.inc'
+if [ -e  '~/google-cloud-sdk/completion.bash.inc' ]; then
+    source '~/google-cloud-sdk/completion.bash.inc'
 fi
 extract () { 
     if [ -f $1 ] ; then 
@@ -233,6 +233,8 @@ export PATH="$HOME/.rvm/gems/ruby-2.0.0-p481/bin:$HOME/.rvm/bin:$PATH" # Add RVM
 export PATH="$HOME/programs/smartgit/bin/:$PATH" 
 [ "$DISPLAY" ] && xset b 100
 
-export NVM_DIR="/home/john/.nvm"
+export NVM_DIR="~/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
-nvm use 0.11.13
+#source ~/.nvm/nvm.sh
+#nvm use 0.11.13
+nvm alias default 0.11.13
