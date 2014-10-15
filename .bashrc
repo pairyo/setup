@@ -175,16 +175,6 @@ AWS_SECRET_KEY=5Bm41mGg0PWq6fy5hkjL67HbVj3o139Zdj86MuMX
 CC_FILE="s3n://aws-publicdatasets/common-crawl/crawl-002/2009/09/17/7/1253241399873_7.arc.gz"
 
 export PATH=$PATH:~/.npmprefix/bin
-
-# The next line updates PATH for the Google Cloud SDK.
-if [ -e '~/google-cloud-sdk/path.bash.inc' ]; then
-    source '~/google-cloud-sdk/path.bash.inc'
-fi
-
-# The next line enables bash completion for gcloud.
-if [ -e  '~/google-cloud-sdk/completion.bash.inc' ]; then
-    source '~/google-cloud-sdk/completion.bash.inc'
-fi
 extract () { 
     if [ -f $1 ] ; then 
         case $1 in 
@@ -240,3 +230,9 @@ export NVM_DIR="~/.nvm"
 export PATH="~/.rvm/gems/ruby-2.1.2/bin:~/.rvm/bin:$PATH" # Add RVM to PATH for scripting
 source ~/.rvm/scripts/rvm
 rvm use 2.0.0
+
+# The next line updates PATH for the Google Cloud SDK.
+source '/home/jie/google-cloud-sdk/path.bash.inc'
+
+# The next line enables bash completion for gcloud.
+source '/home/jie/google-cloud-sdk/completion.bash.inc'
