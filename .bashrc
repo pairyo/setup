@@ -237,6 +237,6 @@ export NVM_DIR="~/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 #source ~/.nvm/nvm.sh
 #nvm ls
-export PATH="~/.rvm/gems/ruby-2.1.2/bin:~/.rvm/bin:$PATH" # Add RVM to PATH for scripting
 source ~/.rvm/scripts/rvm
-rvm use 2.0.0
+export PATH="~/.rvm/gems/ruby-2.1.1/bin:~/.rvm/bin:$PATH" # Add RVM to PATH for scripting
+rvm use 2.1.1
