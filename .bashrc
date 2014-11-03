@@ -1,5 +1,7 @@
 # ~/.bashrc: executed by bash(1) for non-login shells.
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
+alias pbcopy='xclip -selection clipboard'
+alias pbpaste='xclip -selection clipboard -o'
 # for examples
 #startup{{{
 #}}}
@@ -233,10 +235,19 @@ fi
 export PATH="$HOME/programs/smartgit/bin/:$PATH" 
 [ "$DISPLAY" ] && xset b 100
 
-export NVM_DIR="~/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+NVM_DIR="$HOME/.nvm"
+source $NVM_DIR/nvm.sh
+#[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 #source ~/.nvm/nvm.sh
+#nodejs
 #nvm ls
 source ~/.rvm/scripts/rvm
-export PATH="~/.rvm/gems/ruby-2.1.1/bin:~/.rvm/bin:$PATH" # Add RVM to PATH for scripting
-rvm use 2.1.1
+
+NPM_PACKAGES="~/.npm-packages"
+NODE_PATH="$NPM_PACKAGES/lib/node_modules:$NODE_PATH"
+export NODE_ENV=production
+# Unset manpath so we can inherit from /etc/manpath via the `manpath`
+# command
+unset MANPATH  # delete if you already modified MANPATH elsewhere in your config
+MANPATH="$NPM_PACKAGES/share/man:$(manpath)"
+PATH="$NPM_PACKAGES/bin:$PATH"
