@@ -177,16 +177,8 @@ AWS_SECRET_KEY=5Bm41mGg0PWq6fy5hkjL67HbVj3o139Zdj86MuMX
 CC_FILE="s3n://aws-publicdatasets/common-crawl/crawl-002/2009/09/17/7/1253241399873_7.arc.gz"
 
 export PATH=$PATH:~/.npmprefix/bin
-
-# The next line updates PATH for the Google Cloud SDK.
-if [ -e '~/google-cloud-sdk/path.bash.inc' ]; then
-    source '~/google-cloud-sdk/path.bash.inc'
-fi
-
-# The next line enables bash completion for gcloud.
-if [ -e  '~/google-cloud-sdk/completion.bash.inc' ]; then
-    source '~/google-cloud-sdk/completion.bash.inc'
-fi
+source "$HOME/google-cloud-sdk/path.bash.inc"
+source "$HOME/google-cloud-sdk/completion.bash.inc"
 extract () { 
     if [ -f $1 ] ; then 
         case $1 in 
@@ -251,3 +243,9 @@ export NODE_ENV=production
 unset MANPATH  # delete if you already modified MANPATH elsewhere in your config
 MANPATH="$NPM_PACKAGES/share/man:$(manpath)"
 PATH="$NPM_PACKAGES/bin:$PATH"
+
+# The next line updates PATH for the Google Cloud SDK.
+source '/home/jie/google-cloud-sdk/path.bash.inc'
+
+# The next line enables bash completion for gcloud.
+source '/home/jie/google-cloud-sdk/completion.bash.inc'
