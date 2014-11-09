@@ -1,7 +1,6 @@
 #!/bin/bash - 
 set -o nounset                              # Treat unset variables as an error
 #http://redis.io/topics/quickstart
-pushd
 cd ~/Downloads
 wget http://download.redis.io/redis-stable.tar.gz
 tar xvzf redis-stable.tar.gz
@@ -10,9 +9,8 @@ make
 sudo mkdir /etc/redis
 sudo mkdir /var/redis
 sudo cp utils/redis_init_script /etc/init.d/redis_6379
-popd
-#sudo cp redis.conf /etc/redis/6379.conf
-sudo mv redis/6379.conf /etc/redis/
+cd ~/jie/install/developing/
+sudo cp redis/6379.conf /etc/redis/
 #sudo vi /etc/init.d/redis_6379
 #REDIS_PORT
 #Edit the configuration file, making sure to perform the following changes:
