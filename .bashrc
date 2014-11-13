@@ -250,4 +250,4 @@ unset MANPATH  # delete if you already modified MANPATH elsewhere in your config
 MANPATH="$NPM_PACKAGES/share/man:$(manpath)"
 PATH="$NPM_PACKAGES/bin:$PATH"
 source ~/.env
-alias att "tmux attach -t pairyo"
+alias att="tmux attach -t pairyo"
