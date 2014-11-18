@@ -12,7 +12,3 @@ cd ~/.vim
 popd
 
 
-ln ~/jie/.bashrc -s ~/.bashrc
-ln ~/jie/.tmux.conf -s ~/.tmux.conf
-ln ~/.vim/.vimrc -s ~/.vimrc
-ln ~/jie/.vrapperrc -s .vrapperrc
