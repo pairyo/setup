@@ -240,6 +240,9 @@ source $NVM_DIR/nvm.sh
 #nodejs
 #nvm ls
 source ~/.rvm/scripts/rvm
+#tmuxinator
+export EDITOR='vim'
+
 
 NPM_PACKAGES="~/.npm-packages"
 NODE_PATH="$NPM_PACKAGES/lib/node_modules:$NODE_PATH"
