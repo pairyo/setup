@@ -22,6 +22,6 @@ pushd .
 cd ~/Downloads
 wget http://llvm.org/releases/3.5.0/clang+llvm-3.5.0-x86_64-linux-gnu-ubuntu-14.04.tar.xz
 tar axvf clang+llvm-3.5.0-x86_64-linux-gnu-ubuntu-14.04.tar.xz
-sudo mv clang+llvm-3.5.0-x86_64-linux-gnu /usr/local/clang
+sudo mv clang+llvm-3.5.0-x86_64-linux-gnu /usr/local/
 popd 
 
