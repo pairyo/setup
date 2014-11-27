@@ -22,6 +22,6 @@ pushd .
 cd ~/Downloads
 wget http://llvm.org/releases/3.5.0/cfe-3.5.0.src.tar.xz 
 tar axvf cfe-3.5.0.src.tar.xz 
-sudo mv clang+llvm-3.5.0-x86_64-linux-gnu /usr/local/clang
+sudo mv cfe-3.5.0.src /usr/local/clang
 popd 
 
