@@ -24,7 +24,9 @@ windows:
       panes:
         - vim
         - guard
-  - server: bundle exec rails s
+  - server: 
+      server: bundle exec rails s
+      git: 
   - logs: tail -f log/development.log
   - M: cd app/models/
   - C: cd app/controllers/
@@ -32,3 +34,4 @@ windows:
   - H: cd app/helpers/
   - js: cd app/assets/javascripts/
   - css: cd app/assets/stylesheets/
+  - db: rails c
