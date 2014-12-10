@@ -2,6 +2,7 @@
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 alias pbcopy='xclip -selection clipboard'
 alias pbpaste='xclip -selection clipboard -o'
+alias runScala="scala -classpath . $1"
 # for examples
 #startup{{{
 #}}}
@@ -206,6 +207,9 @@ extract () {
     fi 
 } 
 ### Added by the Heroku Toolbelt
+pgrep() {
+  pdfgrep "$1" . -nRi -C 200
+}
 export PATH="/usr/local/heroku/bin:$PATH"
 alias vimbash="vim ~/.bashrc"
 alias sourcebash="source ~/.bashrc"
@@ -255,3 +259,4 @@ PATH="$NPM_PACKAGES/bin:$PATH"
 PATH="~/jie/clang_indexer/build:~/jie/clang_indexer:$PATH"
 source ~/.env
 alias att="tmux attach -t pairyo"
+
