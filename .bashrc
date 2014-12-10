@@ -207,6 +207,9 @@ extract () {
     fi 
 } 
 ### Added by the Heroku Toolbelt
+pgrep() {
+  pdfgrep "$1" . -nRi -C 200
+}
 export PATH="/usr/local/heroku/bin:$PATH"
 alias vimbash="vim ~/.bashrc"
 alias sourcebash="source ~/.bashrc"
@@ -255,3 +258,4 @@ MANPATH="$NPM_PACKAGES/share/man:$(manpath)"
 PATH="$NPM_PACKAGES/bin:$PATH"
 source ~/.env
 alias att="tmux attach -t pairyo"
+
