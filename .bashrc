@@ -3,13 +3,11 @@
 alias pbcopy='xclip -selection clipboard'
 alias pbpaste='xclip -selection clipboard -o'
 alias runScala="scala -classpath . $1"
-# for examples
-#startup{{{
-#}}}
-export JAVA_HOME=/usr/lib/jvm/java-7-oracle
-# /usr/lib/jvm/java-7-oracle/lib/
+
+# java
+export JAVA_HOME=/usr/lib/jvm/java-8-oracle
 export CLASSPATH=$JAVA_HOME/lib:~/programs/hadoop-2.4.1/jars
-#export classpath=$JAVA_HOME/lib:~/programs/hadoop-2.4.1/jars
+
 export EDITOR=vim
 # If not running interactively, don't do anything
 case $- in
@@ -155,7 +153,6 @@ export PATH=$PATH:~/programs/s3cmd
 alias rubyEnvironment='source ~/.rvm/scripts/rvm'
 
 #HADOOP VARIABLES START
-export JAVA_HOME=/usr/lib/jvm/java-7-oracle
 export HADOOP_INSTALL=$HOME/programs/hadoop-2.4.1
 export HADOOP_HOME=$HADOOP_INSTALL
 export PATH=$PATH:$HADOOP_INSTALL/bin:$HADOOP_INSTALL/sbin
@@ -258,4 +255,5 @@ MANPATH="$NPM_PACKAGES/share/man:$(manpath)"
 PATH="$NPM_PACKAGES/bin:$PATH"
 source ~/.env
 alias att="tmux attach -t pairyo"
-
+[[ $- = *i* ]] && source ~/jie/liquidprompt/liquidprompt
+#https://github.com/nojhan/liquidprompt
