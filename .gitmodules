@@ -1,3 +1,12 @@
 [submodule "bundle/minibufexpl"]
 	path = bundle/minibufexpl
 	url = https://github.com/fholgado/minibufexpl.vim
+[submodule "clang_indexer"]
+	path = clang_indexer
+	url = https://github.com/exclipy/clang_indexer
+[submodule "liquidprompt"]
+	path = liquidprompt
+	url = https://github.com/nojhan/liquidprompt
+[submodule "tmux-powerline"]
+	path = tmux-powerline
+	url = https://github.com/erikw/tmux-powerline

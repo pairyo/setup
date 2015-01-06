@@ -3,6 +3,7 @@
 alias pbcopy='xclip -selection clipboard'
 alias pbpaste='xclip -selection clipboard -o'
 alias runScala="scala -classpath . $1"
+alias dict="dict $1 -d gcide wn" #dictionary
 
 # java
 export JAVA_HOME=/usr/lib/jvm/java-8-oracle
