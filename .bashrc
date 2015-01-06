@@ -22,7 +22,6 @@ HISTCONTROL=ignoreboth
 # append to the history file, don't overwrite it
 shopt -s histappend
 
-# for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
 HISTSIZE=1000
 HISTFILESIZE=2000
 
@@ -79,17 +78,24 @@ xterm*|rxvt*)
     ;;
 esac
 
-# enable color support of ls and also add handy aliases
-if [ -x /usr/bin/dircolors ]; then
-    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
-    alias ls='ls --color=auto'
-    #alias dir='dir --color=auto'
-    #alias vdir='vdir --color=auto'
-
-    alias grep='grep --color=auto'
-    alias fgrep='fgrep --color=auto'
-    alias egrep='egrep --color=auto'
+if [ "$(uname)" == "Darwin" ]; then
+  alias ls='ls -G'
+elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
+  if [ -x /usr/bin/dircolors ]; then
+      test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+      alias ls='ls --color=auto'
+      #alias dir='dir --color=auto'
+      #alias vdir='vdir --color=auto'
+      alias grep='grep --color=auto'
+      alias fgrep='fgrep --color=auto'
+      alias egrep='egrep --color=auto'
+  fi
+elif [ "$(expr substr $(uname -s) 1 10)" == "MINGW32_NT" ]; then
+  echo "hey"
 fi
+
+
+# enable color support of ls and also add handy aliases
 
 # some more ls aliases
 alias ll='ls -alF'
@@ -170,8 +176,6 @@ export PATH=$PATH:~/programs/aws/
 #set -o vi
 bind '"\e[A": history-search-backward'
 bind '"\e[B": history-search-forward'
-AWS_KEY=AKIAI42IN2R26L3LQAWA
-AWS_SECRET_KEY=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
 CC_FILE="s3n://aws-publicdatasets/common-crawl/crawl-002/2009/09/17/7/1253241399873_7.arc.gz"
 
 export PATH=$PATH:~/.npmprefix/bin
@@ -203,7 +207,6 @@ extract () {
         echo "'$1' is not a valid file!" 
     fi 
 } 
-### Added by the Heroku Toolbelt
 pgrep() {
   pdfgrep "$1" . -nRi -C 200
 }
@@ -235,12 +238,13 @@ export PATH="$HOME/programs/smartgit/bin/:$PATH"
 [ "$DISPLAY" ] && xset b 100
 
 NVM_DIR="$HOME/.nvm"
-source $NVM_DIR/nvm.sh
-#[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
-#source ~/.nvm/nvm.sh
-#nodejs
-#nvm ls
-source ~/.rvm/scripts/rvm
+if [ -e "$NVM_DIR/nvm.sh" ]; then
+  source $NVM_DIR/nvm.sh
+fi
+
+if [ -e "~/.rvm/scripts/rvm" ]; then
+  source ~/.rvm/scripts/rvm
+fi
 #tmuxinator
 export EDITOR='vim'
 
@@ -254,7 +258,11 @@ unset MANPATH  # delete if you already modified MANPATH elsewhere in your config
 MANPATH="$NPM_PACKAGES/share/man:$(manpath)"
 PATH="$NPM_PACKAGES/bin:$PATH"
 PATH="~/jie/clang_indexer/build:~/jie/clang_indexer:$PATH"
-source ~/.env
+if [ -e ~/.env ]; then
+  source ~/.env
+fi
 alias att="tmux attach -t pairyo"
-[[ $- = *i* ]] && source ~/jie/liquidprompt/liquidprompt
+if [ -e ~/jie/liquidprompt/liquidprompt ]; then
+  [[ $- = *i* ]] && source ~/jie/liquidprompt/liquidprompt
+fi
 #https://github.com/nojhan/liquidprompt
