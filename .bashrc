@@ -90,6 +90,7 @@ elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
       alias grep='grep --color=auto'
       alias fgrep='fgrep --color=auto'
       alias egrep='egrep --color=auto'
+      alias open="xdg-open"
   fi
 elif [ "$(expr substr $(uname -s) 1 10)" == "MINGW32_NT" ]; then
   echo "hey"
@@ -214,7 +215,6 @@ pgrep() {
 export PATH="/usr/local/heroku/bin:$PATH"
 alias vimbash="vim ~/.bashrc"
 alias sourcebash="source ~/.bashrc"
-alias open="xdg-open"
 
 export PATH=$PATH:/home/ec2-user/s3cmd
 # HADOOP
