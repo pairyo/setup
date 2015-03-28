@@ -1,10 +1,9 @@
-# ~/.bashrc: executed by bash(1) for non-login shells.
-# see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 alias pbcopy='xclip -selection clipboard'
 alias pbpaste='xclip -selection clipboard -o'
 alias runScala="scala -classpath . $1"
 alias dict="dict $1 -d gcide wn" #dictionary
 
+export PATH=/usr/local/bin:$PATH
 # java
 export JAVA_HOME=/usr/lib/jvm/java-8-oracle
 export CLASSPATH=$JAVA_HOME/lib:~/programs/hadoop-2.4.1/jars
@@ -80,6 +79,10 @@ xterm*|rxvt*)
 esac
 
 if [ "$(uname)" == "Darwin" ]; then
+  # bash-completion
+  if [ -f /opt/local/etc/profile.d/bash_completion.sh ]; then
+      . /opt/local/etc/profile.d/bash_completion.sh
+  fi
   alias ls='ls -G'
 elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
   if [ -x /usr/bin/dircolors ]; then
@@ -146,7 +149,7 @@ LibClang_LIBRARY=/usr/lib/llvm-3.5/lib/libclang-3.5.so
 LibClang_INCLUDE_DIR=/usr/lib/llvm-3.5/include/clang
 #Ruby RVM
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
-alias rubyEnvironment='source ~/.rvm/scripts/rvm'
+source /Users/Jie/.rvm/scripts/rvm
 #Maven
 export M2_HOME=/usr/share/maven
 export M2=$M2_HOME/bin
