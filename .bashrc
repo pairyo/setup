@@ -270,3 +270,4 @@ if [ -e ~/jie/liquidprompt/liquidprompt ]; then
   [[ $- = *i* ]] && source ~/jie/liquidprompt/liquidprompt
 fi
 #https://github.com/nojhan/liquidprompt
+alias emacs="/usr/local/Cellar/emacs/24.4/bin/emacs"
