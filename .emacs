@@ -1,25 +1,31 @@
 ;;http://writequit.org/org/settings.html#sec-1-1
-(setq debug-on-error t)
+;;(setq debug-on-error t)
+(global-auto-revert-mode t)
+(setenv "PATH" (concat "/usr/local/bin/:" (getenv "PATH")))
 (require 'package)
 (dolist (source '(("marmalade" . "http://marmalade-repo.org/packages/")
                   ("elpa" . "http://tromey.com/elpa/")
-		  ("gnu" . "http://elpa.gnu.org/packages/")
-		  ("melpa" . "http://melpa.org/packages/")
+                  ("gnu" . "http://elpa.gnu.org/packages/")
+                  ("melpa" . "http://melpa.org/packages/")
                   ))
   (add-to-list 'package-archives source t))
 (package-initialize)
+
+(when (memq window-system '(mac ns))
+  (exec-path-from-shell-initialize))
+(exec-path-from-shell-copy-env "PATH")
+
 
 (when (not package-archive-contents)
   (package-refresh-contents))
 (defvar hophacker/packages
   '(js2-mode scala-mode2 ac-js2 js2-refactor tern tern-auto-complete ensime projectile hippie-expand-slime magit zenburn-theme auto-complete robe
-	     helm helm-descbinds use-package paredit vkill ace-jump-mode ace-jump-buffer
+	     helm helm-descbinds use-package paredit vkill ace-jump-mode ace-jump-buffer helm-projectile exec-path-from-shell company
 	     rvm flymake-ruby inf-ruby projectile-rails))
 
 (dolist (p hophacker/packages)
   (when (not (package-installed-p p))
     (package-install p)))
-
 ;;#### variables ####
 (setq grep-file-types "*.{scala,rb,js,jsx,html,css,scss,sass}")
 ;;#### requires ####
@@ -31,14 +37,13 @@
 (require 'auto-complete)(auto-complete-mode t)
 
 ;;#### General ####
+(add-hook 'after-init-hook 'global-company-mode)
 (setq echo-keystrokes 0.1)
-(setenv "PATH" (concat "/usr/local/bin:" (getenv "PATH")))
-(setq default-directory "~/hophacker/productninja/")
+(setq default-directory "~/hophacker/myriad/cbt/darkroom")
 (global-linum-mode 1)
 (projectile-global-mode)
 (setq make-backup-files nil)
 (tool-bar-mode -1)
-(ido-mode t)
 (global-company-mode t)
 (push 'company-robe company-backends)
 (setq ring-bell-function (lambda()))
@@ -375,13 +380,22 @@
               helm-swoop-speed-or-color nil)))
     ))
 ;;---- ido ----
-(setq ido-decorations (quote ("\n-> " "" "\n   " "\n   ..." "[" "]" " [No match]" " [Matched]" " [Not readable]" " [Too big]" " [Confirm]")))
-(defun ido-disable-line-truncation () (set (make-local-variable 'truncate-lines) nil))
-(add-hook 'ido-minibuffer-setup-hook 'ido-disable-line-truncation)
-(defun ido-define-keys () ;; C-n/p is more intuitive in vertical layout
-  (define-key ido-completion-map (kbd "C-n") 'ido-next-match)
-  (define-key ido-completion-map (kbd "C-p") 'ido-prev-match))
-(add-hook 'ido-setup-hook 'ido-define-keys)
+(use-package ido
+  :commands (ido-next-match ido-prev-match)
+  :init
+  (setq ido-decorations (quote ("\n-> " "" "\n   " "\n   ..." "[" "]" " [No match]" " [Matched]" " [Not readable]" " [Too big]" " [Confirm]")))
+  (defun ido-disable-line-truncation () (set (make-local-variable 'truncate-lines) nil))
+  (defun ido-define-keys () ;; C-n/p is more intuitive in vertical layout
+    (define-key ido-completion-map (kbd "C-n") 'ido-next-match)
+    (define-key ido-completion-map (kbd "C-p") 'ido-prev-match)
+    )
+  (add-hook 'ido-minibuffer-setup-hook 'ido-disable-line-truncation)
+  (add-hook 'ido-setup-hook 'ido-define-keys)
+  (setq ido-enable-flex-matching t)
+  (setq ido-everywhere t)
+  (setq ido-file-extensions-order '(".scala", ".js", ".jsx", ".css", ".scss", ".sass",  ".org" ".txt" ".py" ".emacs" ".xml" ".el" ".ini" ".cfg" ".cnf"))
+  (ido-mode 1)
+  )
 
 ;;---- paredit ----
 (autoload 'enable-paredit-mode "paredit" "Turn on pseudo-structural editing of Lisp code." t)
@@ -404,6 +418,7 @@
 ;;#### Mappings ####
 (global-set-key (kbd "s-i") 'indent-region)
 (global-set-key (kbd "s-f") 'projectile-find-file)
+(global-set-key (kbd "C-c r r") 'inf-ruby)
 
 (global-set-key (kbd "C-x e") 'open-dot-emacs)
 (global-set-key (kbd "C-x i") 'package-install)
@@ -417,6 +432,8 @@
 (global-set-key (kbd "C-s-<down>") 'shrink-window)
 (global-set-key (kbd "C-s-<up>") 'enlarge-window)
 (global-set-key (kbd "C-M-/") 'my-expand-file-name-at-point)
+(global-set-key (kbd "<tab>") 'company-complete)
+
 
 (define-key projectile-mode-map (kbd "s-s") 'projectile-persp-switch-project)
 
@@ -433,3 +450,7 @@
 (use-package ace-jump-mode
   :bind (("C-c SPC" . ace-jump-mode)
          ("C-c M-SPC" . ace-jump-line-mode)))
+(message (getenv "PATH"))
+
+;;#### Hook ####
+(add-hook 'projectile-mode-hook 'projectile-rails-on)

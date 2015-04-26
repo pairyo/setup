@@ -271,3 +271,5 @@ if [ -e ~/jie/liquidprompt/liquidprompt ]; then
 fi
 #https://github.com/nojhan/liquidprompt
 alias emacs="/usr/local/Cellar/emacs/24.4/bin/emacs"
+alias ninstall="npm install --save"
+nvm use v0.12.2
