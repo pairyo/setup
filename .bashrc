@@ -156,27 +156,8 @@ export M2=$M2_HOME/bin
 export PATH=$M2:$PATH
 # JAVA
 export JAVA_HOME=/usr/lib/jvm/java-7-openjdk-amd64
-#s3cmd
-
-export PATH=$PATH:~/programs/s3cmd
-
 
 alias rubyEnvironment='source ~/.rvm/scripts/rvm'
-
-#HADOOP VARIABLES START
-export HADOOP_INSTALL=$HOME/programs/hadoop-2.4.1
-export HADOOP_HOME=$HADOOP_INSTALL
-export PATH=$PATH:$HADOOP_INSTALL/bin:$HADOOP_INSTALL/sbin
-export HADOOP_MAPRED_HOME=$HADOOP_INSTALL
-export HADOOP_COMMON_HOME=$HADOOP_INSTALL
-export HADOOP_HDFS_HOME=$HADOOP_INSTALL
-export YARN_HOME=$HADOOP_INSTALL
-export HADOOP_COMMON_LIB_NATIVE_DIR=$HADOOP_INSTALL/lib/native
-export HADOOP_OPTS="-Djava.library.path=$HADOOP_INSTALL/lib"
-#HADOOP VARIABLES END
-#AWS
-export PATH=$PATH:~/programs/aws/
-
 
 #set -o vi
 bind '"\e[A": history-search-backward'
@@ -218,21 +199,8 @@ pgrep() {
 export PATH="/usr/local/heroku/bin:$PATH"
 alias vimbash="vim ~/.bashrc"
 alias sourcebash="source ~/.bashrc"
-
 export PATH=$PATH:/home/ec2-user/s3cmd
 # HADOOP
-export HADOOP_HOME=/usr/local/hadoop
-export PATH=$PATH:$HADOOP_HOME/bin:$HADOOP_HOME/sbin
-export HADOOP_INSTALL=$HADOOP_HOME
-export HADOOP_MAPRED_HOME=$HADOOP_HOME
-export HADOOP_COMMON_HOME=$HADOOP_HOME
-export HADOOP_HDFS_HOME=$HADOOP_HOME
-export YARN_HOME=$HADOOP_HOME
-export HADOOP_COMMON_LIB_NATIVE_DIR=$HADOOP_INSTALL/lib/native
-export HADOOP_OPTS="$HADOOP_OPTS -Djava.library.path=$HADOOP_HOME/lib"
-export CLASSPATH="$CLASSPATH:/usr/local/hadoop/lib"
-export HADOOP_COMMON_LIB_NATIVE_DIR="/usr/local/hadoop/lib"
-export CC_FILE="s3n://aws-publicdatasets/common-crawl/crawl-002/2009/09/17/7/1253241399873_7.arc.gz"
 #xinput set-prop 15 "Device Enabled" 1
 if [[ -e ~/jie/local.sh ]]
 then
@@ -270,4 +238,9 @@ if [ -e ~/jie/liquidprompt/liquidprompt ]; then
   [[ $- = *i* ]] && source ~/jie/liquidprompt/liquidprompt
 fi
 #https://github.com/nojhan/liquidprompt
-alias emacs="/usr/local/Cellar/emacs/24.4/bin/emacs"
+#alias emacs="/usr/local/Cellar/emacs/24.4/bin/emacs"
+
+# nvm 
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+export NVM_DIR="/home/hophacker/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
