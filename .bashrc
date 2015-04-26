@@ -149,7 +149,7 @@ LibClang_LIBRARY=/usr/lib/llvm-3.5/lib/libclang-3.5.so
 LibClang_INCLUDE_DIR=/usr/lib/llvm-3.5/include/clang
 #Ruby RVM
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
-source /Users/Jie/.rvm/scripts/rvm
+source ~/.rvm/scripts/rvm
 #Maven
 export M2_HOME=/usr/share/maven
 export M2=$M2_HOME/bin
@@ -200,29 +200,14 @@ export PATH="/usr/local/heroku/bin:$PATH"
 alias vimbash="vim ~/.bashrc"
 alias sourcebash="source ~/.bashrc"
 export PATH=$PATH:/home/ec2-user/s3cmd
-# HADOOP
 #xinput set-prop 15 "Device Enabled" 1
 if [[ -e ~/jie/local.sh ]]
 then
     source ~/jie/local.sh
 fi
-export PATH="$HOME/programs/smartgit/bin/:$PATH" 
-[ "$DISPLAY" ] && xset b 100
-
-NVM_DIR="$HOME/.nvm"
-if [ -e "$NVM_DIR/nvm.sh" ]; then
-  source $NVM_DIR/nvm.sh
-fi
-
-if [ -e "~/.rvm/scripts/rvm" ]; then
-  source ~/.rvm/scripts/rvm
-fi
 #tmuxinator
 export EDITOR='vim'
 
-
-NPM_PACKAGES="~/.npm-packages"
-NODE_PATH="$NPM_PACKAGES/lib/node_modules:$NODE_PATH"
 export NODE_ENV=production
 # Unset manpath so we can inherit from /etc/manpath via the `manpath`
 # command
@@ -240,7 +225,21 @@ fi
 #https://github.com/nojhan/liquidprompt
 #alias emacs="/usr/local/Cellar/emacs/24.4/bin/emacs"
 
-# nvm 
+export PATH="$HOME/programs/smartgit/bin/:$PATH" 
+[ "$DISPLAY" ] && xset b 100
+
+
+if [ -e "~/.rvm/scripts/rvm" ]; then
+  source ~/.rvm/scripts/rvm
+fi
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
-export NVM_DIR="/home/hophacker/.nvm"
+
+# nvm 
+export NVM_DIR="$HOME/.nvm"
+export NODE_PATH="~/.npm:$NODE_PATH"
+if [ -e "$NVM_DIR/nvm.sh" ]; then
+  source $NVM_DIR/nvm.sh
+fi
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+alias ninstall="npm install --save"
+nvm use v0.12.2
