@@ -1,7 +1,7 @@
 ;;http://writequit.org/org/settings.html#sec-1-1
 ;;(setq debug-on-error t)
+(setq debug-on-error t)
 (global-auto-revert-mode t)
-(setenv "PATH" (concat "/usr/local/bin/:" (getenv "PATH")))
 (require 'package)
 (dolist (source '(("marmalade" . "http://marmalade-repo.org/packages/")
                   ("elpa" . "http://tromey.com/elpa/")
@@ -11,21 +11,21 @@
   (add-to-list 'package-archives source t))
 (package-initialize)
 
-(when (memq window-system '(mac ns))
-  (exec-path-from-shell-initialize))
-(exec-path-from-shell-copy-env "PATH")
-
-
 (when (not package-archive-contents)
   (package-refresh-contents))
 (defvar hophacker/packages
   '(js2-mode scala-mode2 ac-js2 js2-refactor tern tern-auto-complete ensime projectile hippie-expand-slime magit zenburn-theme auto-complete robe
 	     helm helm-descbinds use-package paredit vkill ace-jump-mode ace-jump-buffer helm-projectile exec-path-from-shell company
 	     rvm flymake-ruby inf-ruby projectile-rails))
-
 (dolist (p hophacker/packages)
   (when (not (package-installed-p p))
     (package-install p)))
+
+(when (memq window-system '(mac ns))
+  (exec-path-from-shell-initialize))
+(exec-path-from-shell-copy-env "PATH")
+(setq exec-path (append exec-path '("/usr/local/bin")))
+
 ;;#### variables ####
 (setq grep-file-types "*.{scala,rb,js,jsx,html,css,scss,sass}")
 ;;#### requires ####
