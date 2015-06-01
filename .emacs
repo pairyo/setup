@@ -35,11 +35,15 @@
 (require 'zenburn-theme)
 (require 'robe)
 (require 'auto-complete)(auto-complete-mode t)
-
+;;#### emacs-livedown  ####
+; before using this: git clone git@github.com:shime/emacs-livedown.git ~/.emacs.d/emacs-livedown
+(add-to-list 'load-path (expand-file-name "~/.emacs.d/emacs-livedown"))
+(require 'livedown)
+(global-set-key (kbd "C-M-m") 'livedown:preview)
 ;;#### General ####
 (add-hook 'after-init-hook 'global-company-mode)
 (setq echo-keystrokes 0.1)
-(setq default-directory "~/huoer")
+(setq default-directory "~/pairyo")
 (global-linum-mode 1)
 (projectile-global-mode)
 (setq make-backup-files nil)
@@ -71,6 +75,11 @@
 (add-to-list 'auto-mode-alist '("\\.json$" . js2-mode))
 (add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
 (add-to-list 'auto-mode-alist '("\\.jsx$" . js2-mode))
+
+(custom-set-variables
+ '(livedown:autostart nil) ; automatically open preview when opening markdown files 
+ '(livedown:open t)        ; automatically open the browser window
+ '(livedown:port 1337))    ; port for livedown server
 
 (add-hook 'js2-mode-hook 'ac-js2-mode)
 
