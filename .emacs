@@ -10,7 +10,7 @@
   (add-to-list 'package-archives source t))
 (package-initialize)
 
-(when (not package-archive-contents)
+(when (not package-archive-coxntents)
   (package-refresh-contents))
 (defvar hophacker/packages
   '(js2-mode ac-js2 js2-refactor tern tern-auto-complete
@@ -54,7 +54,7 @@
 ;;yas-end
 (add-hook 'after-init-hook 'global-company-mode)
 (setq echo-keystrokes 0.1)
-(setq default-directory "~/pairyo")
+(setq default-directory "~/pairyo/pairyo")
 (global-linum-mode 1)
 (projectile-global-mode)
 (setq make-backup-files nil)
@@ -112,7 +112,6 @@
       (tern-ac-setup)))
 
 ;;#### Functions ####
-; when I start emacs in a directory, it becomes the root directory 
 (defvar root-dir default-directory)
 (defun helm-do-grep-recursive ()
   "Like `helm-do-grep', but greps recursively by default and targeting the root directory."
@@ -181,7 +180,7 @@
 ;;#### Tools ####
 (use-package vkill
   :commands vkill
-l  :bind ("C-x L" . vkill-and-helm-occur)
+  :bind ("C-x L" . vkill-and-helm-occur)
   :init
   (defun vkill-and-helm-occur ()
     (interactive)
