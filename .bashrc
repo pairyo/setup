@@ -30,8 +30,7 @@ case $- in *i*) ;; *) return;; esac
 export NVM_DIR="$HOME/.nvm"
 export NODE_PATH="$HOME/.npm:$NODE_PATH"
 export NODE_ENV=production
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  
-nvm use v0.12.2
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" && nvm use v0.12.2
 
 ########## rvm 
 [ -e "~/.rvm/scripts/rvm" ] && . ~/.rvm/scripts/rvm
