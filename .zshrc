@@ -1,4 +1,5 @@
 # Path to your oh-my-zsh installation.
+source $HOME/.bash_profile
 export ZSH=/home/hophacker/.oh-my-zsh
 
 # Set name of the theme to load.
@@ -82,7 +83,7 @@ source $ZSH/oh-my-zsh.sh
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 export NVM_DIR="/home/hophacker/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
-nvm use 0.12.4
+nvm use 0.12.7
 export EDITOR="env LC_CTYPE=zh_CN.UTF-8 emacs"
 alias emacs=$EDITOR
 
@@ -90,6 +91,34 @@ alias emacs=$EDITOR
 git config --global alias.df "diff HEAD^ HEAD"
 git config --global alias.caa "commit -a --amend"
 DISABLE_AUTO_TITLE=true
-export PATH=$PATH:~/Android/Sdk/platform-tools:~/Android/Sdk/tools/
+export PATH="/home/hophacker/Android/sdk/platform-tools:/home/hophacker/Android/sdk/tools/:$PATH"
 export JAVA_HOME=/usr/lib/jvm/java-8-oracle
 rvm use 2.2.1
+function swap() {
+  if [ $# -ne 2 ]; then
+    echo "Usage: swap file1 file2"
+  else
+    local TMPFILE=$(mktemp)
+    mv "$1" $TMPFILE
+    mv "$2" "$1"
+    mv $TMPFILE "$2"
+  fi
+}
+
+alias vsecrets='vim ~/pairyo/docs/secrets.sh'
+export ANDROID_HOME='/home/hophacker/Android/sdk'
+alias open=xdg-open
+function _sync(){
+  server=$1
+  if [ "$server" = "test" -o "$server" = "production" ]; then
+    branch=$2
+    if [ "$branch" = "" ]; then
+      branch=master
+    fi
+    git checkout $branch
+    git add .; gca! --no-edit; 
+    gpu $branch --force; 
+    ssh game_$server "cd ~/tianhei; git checkout -f $branch; git fetch upstream $branch; git reset upstream/$branch --hard;"
+  fi 
+}
+alias sync=_sync
