@@ -39,14 +39,17 @@ ZSH_THEME="robbyrussell"
 # The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
 # HIST_STAMPS="mm/dd/yyyy"
 
+HISTCONTROL=ignoreboth
+HISTSIZE=1000
+HISTFILESIZE=2000
+
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
-
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(git history)
 
 # User configuration
 
@@ -82,6 +85,7 @@ source $ZSH/oh-my-zsh.sh
 
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 export NVM_DIR="/home/hophacker/.nvm"
+rvm use 2.2.1
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 nvm use 0.12.7
 export EDITOR="env LC_CTYPE=zh_CN.UTF-8 emacs"
@@ -93,7 +97,6 @@ git config --global alias.caa "commit -a --amend"
 DISABLE_AUTO_TITLE=true
 export PATH="/home/hophacker/Android/sdk/platform-tools:/home/hophacker/Android/sdk/tools/:$PATH"
 export JAVA_HOME=/usr/lib/jvm/java-8-oracle
-rvm use 2.2.1
 function swap() {
   if [ $# -ne 2 ]; then
     echo "Usage: swap file1 file2"
@@ -122,3 +125,4 @@ function _sync(){
   fi 
 }
 alias sync=_sync
+QINIU_ACCESS_KEY=l6Rf0LgQDgpSwjdXr_MgsCynhsofRM7W2dwvIOXO
