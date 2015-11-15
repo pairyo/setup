@@ -85,7 +85,7 @@ source $ZSH/oh-my-zsh.sh
 
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 export NVM_DIR="/home/hophacker/.nvm"
-rvm use 2.2.1
+rvm use 2.2.3
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 nvm use 0.12.7
 export EDITOR="env LC_CTYPE=zh_CN.UTF-8 emacs"
