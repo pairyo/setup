@@ -83,9 +83,9 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+export PATH="$HOME/.rvm/gems/ruby-2.2.3/bin:$HOME/Android/sdk/platform-tools:$HOME/Android/sdk/tools/:$PATH"
 export NVM_DIR="/home/hophacker/.nvm"
-rvm use 2.2.3
+rvm use ruby-2.2.3
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 nvm use 0.12.7
 export EDITOR="env LC_CTYPE=zh_CN.UTF-8 emacs"
@@ -95,7 +95,6 @@ alias emacs=$EDITOR
 git config --global alias.df "diff HEAD^ HEAD"
 git config --global alias.caa "commit -a --amend"
 DISABLE_AUTO_TITLE=true
-export PATH="/home/hophacker/Android/sdk/platform-tools:/home/hophacker/Android/sdk/tools/:$PATH"
 export JAVA_HOME=/usr/lib/jvm/java-8-oracle
 function swap() {
   if [ $# -ne 2 ]; then
