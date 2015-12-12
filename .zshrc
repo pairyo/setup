@@ -1,6 +1,6 @@
 # Path to your oh-my-zsh installation.
-source $HOME/.bash_profile
-export ZSH=/home/hophacker/.oh-my-zsh
+# source $HOME/.bash_profile
+export ZSH=~/.oh-my-zsh
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
